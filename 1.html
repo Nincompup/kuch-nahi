@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="run-button">Run Node.js File</button>
+    <script> 
+        // Get a reference to the button 
+        const button = document.getElementById('my-button'); 
+       
+        // Add an event listener to the button that will execute the Node.js file when the button is clicked 
+        button.addEventListener('click', function() { 
+          // Use the `child_process` module in Node.js to run the file 
+          const { execFile } = require('child_process'); 
+       
+          // Replace 'my-file.js' with the name of your Node.js file 
+          execFile('test.js', (error, stdout, stderr) => { 
+            if (error) { 
+              // Handle the error 
+              console.error(error); 
+              return; 
+            } 
+       
+            // Print the output of the Node.js file to the console 
+            // console.log(stdout); 
+          }); 
+        }); 
+      </script>
+      
+</body>
+</html>
